@@ -2,7 +2,7 @@
 
 This repository containts an Ethereum DApp that demonstrates a Supply Chain flow between a Seller and Buyer. The user story is similar to any commonly used supply chain process. A Seller can add items to the inventory system stored in the blockchain. A Buyer can purchase such items from the inventory system. Additionally a Seller can mark an item as Shipped, and similarly a Buyer can mark an item as Received.
 
-The writeup folder contains the sequence, class, activity and state diagrams, all in UML format.
+The (writeup folder)[https://github.com/abuaesh/CoffeeSupplyChain/tree/master/UML%20and%20write-ups] contains the sequence, class, activity and state diagrams, all in UML format. To open the source files for these diagrams, go to (draw.io)[draw.io] and paste the link to this repository, then select the file you would like to open.
 
 The DApp User Interface when running should look like...
 
