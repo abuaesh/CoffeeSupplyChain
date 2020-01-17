@@ -156,50 +156,50 @@ contract SupplyChain {
   function harvestItem(uint _upc, address _originFarmerID, string _originFarmName, string _originFarmInformation, string  _originFarmLatitude, string  _originFarmLongitude, string  _productNotes) public 
   {
     // Add the new item as part of Harvest
-    
+    items[_upc].itemState = State.Harvested;  
     // Increment sku
     sku = sku + 1;
     // Emit the appropriate event
-    
+    emit Harvested(_upc); 
   }
 
   // Define a function 'processtItem' that allows a farmer to mark an item 'Processed'
   function processItem(uint _upc) public 
   // Call modifier to check if upc has passed previous supply chain stage
-  
+  harvested(_upc)
   // Call modifier to verify caller of this function
-  
+  verifyCaller(msg.sender)
   {
     // Update the appropriate fields
-    
-    // Emit the appropriate event
-    
+    items[_upc].itemState = State.Processed;
+    // Emit the appropriate event;
+    emit Processed(_upc);
   }
 
   // Define a function 'packItem' that allows a farmer to mark an item 'Packed'
   function packItem(uint _upc) public 
   // Call modifier to check if upc has passed previous supply chain stage
-  
+  processed(_upc)
   // Call modifier to verify caller of this function
-  
+  verifyCaller(msg.sender)
   {
     // Update the appropriate fields
-    
-    // Emit the appropriate event
-    
+    items[_upc].itemState = State.Packed;
+    // Emit the appropriate event;
+    emit Packed(_upc);
   }
 
   // Define a function 'sellItem' that allows a farmer to mark an item 'ForSale'
   function sellItem(uint _upc, uint _price) public 
   // Call modifier to check if upc has passed previous supply chain stage
-  
+  packed(_upc)
   // Call modifier to verify caller of this function
-  
+  verifyCaller(msg.sender)
   {
     // Update the appropriate fields
-    
+    items[_upc].itemState = State.ForSale;
     // Emit the appropriate event
-    
+    emit forSale(_upc);
   }
 
   // Define a function 'buyItem' that allows the disributor to mark an item 'Sold'
