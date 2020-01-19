@@ -216,10 +216,14 @@ contract SupplyChain {
     
     // Update the appropriate fields - ownerID, distributorID, itemState
     
+    items[_upc].itemState = State.Sold;
+    items[_upc].ownerID = owner;
+    items[_upc].distributorID = msg.sender;
+
     // Transfer money to farmer
-    
+    How?????? 
     // emit the appropriate event
-    
+    emit sold(_upc);
   }
 
   // Define a function 'shipItem' that allows the distributor to mark an item 'Shipped'
@@ -231,7 +235,9 @@ contract SupplyChain {
     
     {
     // Update the appropriate fields
-    
+    items[_upc].itemState = State.Shipped;
+
+
     // Emit the appropriate event
     
   }
