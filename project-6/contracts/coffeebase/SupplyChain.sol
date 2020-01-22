@@ -199,7 +199,7 @@ contract SupplyChain {
     // Update the appropriate fields
     items[_upc].itemState = State.ForSale;
     // Emit the appropriate event
-    emit forSale(_upc);
+    emit ForSale(_upc);
   }
 
   // Define a function 'buyItem' that allows the disributor to mark an item 'Sold'
@@ -223,7 +223,7 @@ contract SupplyChain {
     // Transfer money to farmer
     How?????? 
     // emit the appropriate event
-    emit sold(_upc);
+    emit Sold(_upc);
   }
 
   // Define a function 'shipItem' that allows the distributor to mark an item 'Shipped'
@@ -236,38 +236,42 @@ contract SupplyChain {
     {
     // Update the appropriate fields
     items[_upc].itemState = State.Shipped;
-    //items[_upc].ownerID = owner;
-    //items[_upc].distributorID = msg.sender;
 
 
     // Emit the appropriate event
-    
+    emit Shipped(_upc);
   }
 
   // Define a function 'receiveItem' that allows the retailer to mark an item 'Received'
   // Use the above modifiers to check if the item is shipped
   function receiveItem(uint _upc) public 
     // Call modifier to check if upc has passed previous supply chain stage
-    
+    shipped(_upc)
     // Access Control List enforced by calling Smart Contract / DApp
+    onlyOwner()
     {
     // Update the appropriate fields - ownerID, retailerID, itemState
-    
+    items[_upc].itemState = State.Received;
+    items[_upc].ownerID = owner;
+    items[_upc].retailerID = msg.sender;
     // Emit the appropriate event
-    
+    emit Received(_upc);
   }
 
   // Define a function 'purchaseItem' that allows the consumer to mark an item 'Purchased'
   // Use the above modifiers to check if the item is received
   function purchaseItem(uint _upc) public 
     // Call modifier to check if upc has passed previous supply chain stage
-    
+    received(_upc)
     // Access Control List enforced by calling Smart Contract / DApp
+    onlyOwner()
     {
     // Update the appropriate fields - ownerID, consumerID, itemState
-    
+    items[_upc].itemState = State.Purchased;
+    items[_upc].ownerID = owner;
+    items[_upc].consumerID = msg.sender;
     // Emit the appropriate event
-    
+    emit Purchased(_upc);
   }
 
   // Define a function 'fetchItemBufferOne' that fetches the data
@@ -284,7 +288,14 @@ contract SupplyChain {
   ) 
   {
   // Assign values to the 8 parameters
-  
+  itemSKU = items[_upc].sku;
+  itemUPC = items[_upc].upc;
+  ownerID = items[_upc].ownerID;
+  originFarmerID = items[_upc].originFarmerID;
+  originFarmName = items[_upc].originFarmName;
+  originFarmInformation = items[_upc].originFarmInformation;
+  originFarmLatitude = items[_upc].originFarmLatitude;
+  originFarmLongitude = items[_upc].originFarmLongitude;
     
   return 
   (
