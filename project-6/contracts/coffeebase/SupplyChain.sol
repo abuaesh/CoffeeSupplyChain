@@ -222,7 +222,7 @@ contract SupplyChain {
     items[_upc].distributorID = msg.sender;
 
     // Transfer money to farmer
-    items[_upc].ownerID.send(productPrice);
+    owner.transfer(items[_upc].productPrice); //not sure of this line. Distributor should pay the farmer. Does owner still refer to the farmer?
     // emit the appropriate event
     emit Sold(_upc);
   }
@@ -253,7 +253,7 @@ contract SupplyChain {
     {
     // Update the appropriate fields - ownerID, retailerID, itemState
     items[_upc].itemState = State.Received;
-    items[_upc].ownerID = owner;
+    items[_upc].ownerID = msg.sender;
     items[_upc].retailerID = msg.sender;
     // Emit the appropriate event
     emit Received(_upc);
@@ -269,7 +269,7 @@ contract SupplyChain {
     {
     // Update the appropriate fields - ownerID, consumerID, itemState
     items[_upc].itemState = State.Purchased;
-    items[_upc].ownerID = owner;
+    items[_upc].ownerID = msg.sender;
     items[_upc].consumerID = msg.sender;
     // Emit the appropriate event
     emit Purchased(_upc);
@@ -326,7 +326,15 @@ contract SupplyChain {
   ) 
   {
     // Assign values to the 9 parameters
-  
+  itemSKU = items[_upc].sku;
+  itemUPC = items[_upc].upc;
+  productID = items[_upc].productId;
+  productNotes = items[_upc].productNotes;
+  productPrice = items[_upc].productPrice;
+  itemState = items[_upc].itemState;
+  distributorID = items[_upc].distributorID;
+  retailerID = items[_upc].retailerID;
+  consumerID = items[_upc].consumerID;
     
   return 
   (
