@@ -19,13 +19,13 @@ contract DistributorRole {
 
   // Define a modifier that checks to see if msg.sender has the appropriate role
   modifier onlyDistributor() {
-    require(has(distibutors, msg.sender));
+    require(isDistributor(msg.sender));
     _;
   }
 
   // Define a function 'isDistributor' to check this role
   function isDistributor(address account) public view returns (bool) {
-    return has(distributors, account);
+    return Roles.has(distributors, account);
   }
 
   // Define a function 'addDistributor' that adds this role
@@ -40,13 +40,13 @@ contract DistributorRole {
 
   // Define an internal function '_addDistributor' to add this role, called by 'addDistributor'
   function _addDistributor(address account) internal {
-    add(distributors, account);
+    Roles.add(distributors, account);
     emit DistributorAdded(account);
   }
 
   // Define an internal function '_removeDistributor' to remove this role, called by 'removeDistributor'
   function _removeDistributor(address account) internal {
-    remove(distributor, account);
+    Roles.remove(distributor, account);
     emit DistributorRemoved(account);
   }
 }
