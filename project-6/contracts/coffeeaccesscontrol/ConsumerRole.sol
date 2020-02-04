@@ -20,13 +20,13 @@ contract ConsumerRole {
 
   // Define a modifier that checks to see if msg.sender has the appropriate role
   modifier onlyConsumer() {
-    require(has(consumers, msg.sender));
+    require(isConsumer(msg.sender));
     _;
   }
 
   // Define a function 'isConsumer' to check this role
   function isConsumer(address account) public view returns (bool) {
-    return(has(consumers, account));
+    return(Roles.has(consumers, account));
   }
 
   // Define a function 'addConsumer' that adds this role
@@ -41,13 +41,13 @@ contract ConsumerRole {
 
   // Define an internal function '_addConsumer' to add this role, called by 'addConsumer'
   function _addConsumer(address account) internal {
-    add(consumers, account);
+    Roles.add(consumers, account);
     emit ConsumerAdded(account);
   }
 
   // Define an internal function '_removeConsumer' to remove this role, called by 'removeConsumer'
   function _removeConsumer(address account) internal {
-    remove(consumers, msg.sender);    
+    Roles.remove(consumers, msg.sender);    
     emit ConsumerRemoved(account);
   }
 }
