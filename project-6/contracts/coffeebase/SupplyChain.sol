@@ -208,7 +208,7 @@ contract SupplyChain {
   // and any excess ether sent is refunded back to the buyer
   function buyItem(uint _upc) public payable 
     // Call modifier to check if upc has passed previous supply chain stage
-    forsale(_upc)
+    forSale(_upc)
     // Call modifer to check if buyer has paid enough
     paidEnough(_upc)
     // Call modifer to send any excess ether back to buyer
@@ -319,7 +319,7 @@ contract SupplyChain {
   uint    productID,
   string  productNotes,
   uint    productPrice,
-  uint    itemState,
+  State    itemState,
   address distributorID,
   address retailerID,
   address consumerID
@@ -328,7 +328,7 @@ contract SupplyChain {
     // Assign values to the 9 parameters
   itemSKU = items[_upc].sku;
   itemUPC = items[_upc].upc;
-  productID = items[_upc].productId;
+  productID = items[_upc].productID;
   productNotes = items[_upc].productNotes;
   productPrice = items[_upc].productPrice;
   itemState = items[_upc].itemState;

@@ -15,7 +15,7 @@ contract('SupplyChain', function(accounts) {
     var productID = sku + upc
     const productNotes = "Best beans for Espresso"
     const productPrice = web3.toWei(1, "ether")
-    var itemState = 0
+    var itemState = 7
     const distributorID = accounts[2]
     const retailerID = accounts[3]
     const consumerID = accounts[4]

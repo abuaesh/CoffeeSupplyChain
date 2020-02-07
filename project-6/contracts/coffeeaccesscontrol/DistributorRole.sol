@@ -46,7 +46,7 @@ contract DistributorRole {
 
   // Define an internal function '_removeDistributor' to remove this role, called by 'removeDistributor'
   function _removeDistributor(address account) internal {
-    Roles.remove(distributor, account);
+    Roles.remove(distributors, account);
     emit DistributorRemoved(account);
   }
 }
