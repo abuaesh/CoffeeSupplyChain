@@ -256,7 +256,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1468,
+                          "referencedDeclaration": 1539,
                           "src": "591:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -364,7 +364,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1468,
+                              "referencedDeclaration": 1539,
                               "src": "746:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -430,10 +430,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1471,
-                        1472
+                        1542,
+                        1543
                       ],
-                      "referencedDeclaration": 1471,
+                      "referencedDeclaration": 1542,
                       "src": "727:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -509,7 +509,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1468,
+                          "referencedDeclaration": 1539,
                           "src": "933:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -825,7 +825,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1468,
+                          "referencedDeclaration": 1539,
                           "src": "1235:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1500,7 +1500,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1468,
+                          "referencedDeclaration": 1539,
                           "src": "591:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1608,7 +1608,7 @@
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1468,
+                              "referencedDeclaration": 1539,
                               "src": "746:3:4",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
@@ -1674,10 +1674,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        1471,
-                        1472
+                        1542,
+                        1543
                       ],
-                      "referencedDeclaration": 1471,
+                      "referencedDeclaration": 1542,
                       "src": "727:7:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1753,7 +1753,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1468,
+                          "referencedDeclaration": 1539,
                           "src": "933:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2069,7 +2069,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1468,
+                          "referencedDeclaration": 1539,
                           "src": "1235:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2604,10 +2604,41 @@
       "links": {},
       "address": "0x5707f6018A5D737aAbd4B48E9f4a82C699259579",
       "transactionHash": "0x8ebeb0b88223ca6d257710ba6ba0e702e6e07ca53ec4fc2f8b623ff6f8e8ba4e"
+    },
+    "1581194121470": {
+      "events": {
+        "0x71ae26cad02663e3d92efd6ec56031a80d74a20c0ab4183faa8bf262261c9baa": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_account",
+              "type": "address"
+            }
+          ],
+          "name": "RetailerAdded",
+          "type": "event"
+        },
+        "0xdb7176e79cffef81cb01767dd0447a0b24bb72ca9778d4b245581086b2a7e6db": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "_account",
+              "type": "address"
+            }
+          ],
+          "name": "RetailerRemoved",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xA0FD55F7e9784A9d90Ba20ADbf486BC550003131",
+      "transactionHash": "0x8201ca78eef5c8680cc255fc4147919be025c8ecf7bd12caaadfd8e248fa0a68"
     }
   },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2020-02-07T16:54:39.619Z",
+  "updatedAt": "2020-02-08T20:52:01.209Z",
   "devdoc": {
     "methods": {}
   },
