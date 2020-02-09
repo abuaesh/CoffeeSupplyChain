@@ -166,7 +166,6 @@ contract SupplyChain {
     items[_upc].originFarmLongitude = _originFarmLongitude;
     items[_upc].productNotes = _productNotes;
     items[_upc].upc = _upc;
-    items[_upc].ownerID = owner;
 
     // Increment sku to be ready for assignment to the next item to be harvested
     sku = sku + 1;
@@ -196,6 +195,8 @@ contract SupplyChain {
   {
     // Update the appropriate fields
     items[_upc].itemState = State.Packed;
+    items[_upc].productID = items[_upc].sku + items[_upc].upc;
+
     // Emit the appropriate event;
     emit Packed(_upc);
   }
