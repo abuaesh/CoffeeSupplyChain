@@ -155,6 +155,7 @@ contract SupplyChain {
   // Define a function 'harvestItem' that allows a farmer to mark an item 'Harvested'
   function harvestItem(uint _upc, address _originFarmerID, string _originFarmName, string _originFarmInformation, string  _originFarmLatitude, string  _originFarmLongitude, string  _productNotes) public 
   {
+    owner = msg.sender; //Farmeer is the current owner
     // Add the new item as part of Harvest
     items[_upc].itemState = State.Harvested;  
     items[_upc].sku = sku;
@@ -226,9 +227,8 @@ contract SupplyChain {
     // Call modifer to send any excess ether back to buyer
     checkValue(_upc)
     {
-    
+    owner = msg.sender; //Distributor is the current owner
     // Update the appropriate fields - ownerID, distributorID, itemState
-    
     items[_upc].itemState = State.Sold;
     items[_upc].ownerID = msg.sender;
     items[_upc].distributorID = msg.sender;
@@ -261,8 +261,9 @@ contract SupplyChain {
     // Call modifier to check if upc has passed previous supply chain stage
     shipped(_upc)
     // Access Control List enforced by calling Smart Contract / DApp
-    onlyOwner()
+    verifyCaller(msg.sender)//onlyOwner()
     {
+      owner = msg.sender; //Retailer is the current owner
     // Update the appropriate fields - ownerID, retailerID, itemState
     items[_upc].itemState = State.Received;
     items[_upc].ownerID = msg.sender;
@@ -277,8 +278,9 @@ contract SupplyChain {
     // Call modifier to check if upc has passed previous supply chain stage
     received(_upc)
     // Access Control List enforced by calling Smart Contract / DApp
-    onlyOwner()
+    verifyCaller(msg.sender)//onlyOwner()
     {
+      owner = msg.sender; //Consumer is the current owner
     // Update the appropriate fields - ownerID, consumerID, itemState
     items[_upc].itemState = State.Purchased;
     items[_upc].ownerID = msg.sender;
