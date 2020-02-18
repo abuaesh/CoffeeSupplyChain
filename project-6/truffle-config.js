@@ -23,7 +23,7 @@
  */
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
-const infuraKey = "2b84380d9589437f9a2e75da70bebeea";
+//const infuraKey = "2b84380d9589437f9a2e75da70bebeea";
 const mnemonic = "meat subject afford swallow accuse please soup solar confirm neck tired test";
 //
 // const fs = require('fs');
@@ -31,18 +31,19 @@ const mnemonic = "meat subject afford swallow accuse please soup solar confirm n
 
 module.exports = {
   networks: {
-    development: {
-      host: "127.0.0.1",  //localhost
-      port: 8545,  //Port for Ganache-cli 
-      network_id: "*" // Match any network id
-    },
     rinkeby: {
-      provider: () => new HDWalletProvider(mnemonic, `rinkeby.infura.io/v3/2b84380d9589437f9a2e75da70bebeea`),
+      provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/2b84380d9589437f9a2e75da70bebeea`),
         network_id: 4,       // rinkeby's id
         gas: 4500000,        // rinkeby has a lower block limit than mainnet
-        gasPrice: 10000000000,
-        networkCheckTimeout: 100
+        gasPrice: 21000000000,
+        //networkCheckTimeout: 1000
     },
+    development: {
+      host: "127.0.0.1",  //localhost
+      port: 9545,  //Port for Truffle(9545) //Or, Ganache-cli (8545)
+      network_id: "*" // Match any network id
+    }
+    
   },
   compilers: {
      solc: {
